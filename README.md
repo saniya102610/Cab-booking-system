@@ -1,42 +1,62 @@
-cab-booking-system
-SQL project simulating a cab booking system with schema, sample data, and analytical queries.
+# 🚖 Cab Booking System – SQL Project
 
-Cab Booking System - SQL Project
-This repository contains a simulated Cab Booking System database built using SQL. It includes schema creation, sample data, and example queries for analytics and management. The project demonstrates database design, SQL queries, and data analysis in a transportation context.
+This project is a **Cab Booking System simulation** built using SQL. It demonstrates database design, data management, and analytical querying in a real-world transportation scenario.
 
-📂 Project Structure
-File Name	Description
-schema.sql	SQL script to create all tables (Customers, Drivers, Rides, etc.)
-data.sql	Sample data inserts for testing and demonstration
-queries.sql	Example SQL queries for analytics and reporting
-README.md	Project overview and instructions
-🗄 Database Schema
-Customers
-CustomerID INT PRIMARY KEY
-Name VARCHAR(100)
-Phone VARCHAR(15)
-Email VARCHAR(100) UNIQUE
-JoinDate DATE
-Drivers
-DriverID INT PRIMARY KEY
-Name VARCHAR(100)
-Phone VARCHAR(15)
-LicenseNumber VARCHAR(20)
-Rating DECIMAL(2,1)
-JoinDate DATE
-Rides
-RideID INT PRIMARY KEY
-CustomerID INT (FK → Customers)
-DriverID INT (FK → Drivers)
-StartTime DATETIME
-EndTime DATETIME
-PickupLocation VARCHAR(255)
-DropLocation VARCHAR(255)
-Fare DECIMAL(10,2)
-(Additional tables like Payments or Reviews can be added similarly)
+---
 
-📊 Example Queries
-Total rides per driver
+## 📌 Project Overview
+
+- Designed a relational database for cab booking operations  
+- Created tables for customers, drivers, and rides  
+- Inserted sample data for real-world simulation  
+- Wrote SQL queries for analytics and reporting  
+
+---
+
+## 📂 Project Structure
+
+| File Name      | Description |
+|---------------|------------|
+| schema.sql    | Creates database tables |
+| data.sql      | Inserts sample data |
+| queries.sql   | Contains analytical queries |
+| README.md     | Project documentation |
+
+---
+
+## 🗄️ Database Schema
+
+### Customers
+- CustomerID (Primary Key)  
+- Name  
+- Phone  
+- Email (Unique)  
+- JoinDate  
+
+### Drivers
+- DriverID (Primary Key)  
+- Name  
+- Phone  
+- LicenseNumber  
+- Rating  
+- JoinDate  
+
+### Rides
+- RideID (Primary Key)  
+- CustomerID (Foreign Key)  
+- DriverID (Foreign Key)  
+- StartTime  
+- EndTime  
+- PickupLocation  
+- DropLocation  
+- Fare  
+
+---
+
+## 📊 Example Queries
+
+### 🔹 Total Rides per Driver
+```sql
 SELECT DriverID, COUNT(*) AS TotalRides
 FROM Rides
 GROUP BY DriverID;
